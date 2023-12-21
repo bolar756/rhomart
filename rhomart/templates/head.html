@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'index.css'%}">
+</head>
+<body>
+    <header><h1>rhomart processing details</h1></header>
+        {% for message in messages %}
+        <div class="modal" id="mode">
+        <h3>{{message}}</h3>
+        <b onclick="gerd()">&times;</b>
+    </div>
+        {% endfor %}
+    <div class="container">
+        <script>
+         let b = document.querySelector('b')
+         let beattle = document.getElementById('mode')
+         function gerd(){
+            beattle.classList.toggle('herd')
+         }
+        </script>
+       <table>
+        <tr>
+            <th>date</th>
+            <th>Name</th>
+            <th>Amount(naira)</th>
+            <th>category</th>
+            <th>Age</th>
+            <th>gender</th>
+        </tr>
+        {% for sum in sent %}
+        <tr>
+                <td>{{sum.Date}}</td>
+                <td>{{sum.name}}</td>
+                <td>{{sum.amount}}</td>
+                <td>{{sum.category}}</td>
+                <td>{{sum.age}}</td>
+                <td>{{sum.gender}}</td>
+        </tr>
+        {% endfor  %}
+       </table>
+       <form action="/register" method="post">
+        {% csrf_token %}
+        <input type="text" placeholder="name" name="name">
+        <input type="number" placeholder="amount" name="amount">
+        <input type="number" placeholder="age" max="100" name="age">
+        <select name="category" id="">
+        <option value="" >category</option>
+        <option value="study">study</option>
+        <option value="visit">visit</option>
+        <option value="work">work</option>
+        <option value="other">other</option>
+    </select>
+        <select name="gender" id="">
+            <option value="">gender</option>
+            <option value="male">male</option>
+            <option value="female">female</option>
+        </select>
+        <button type="submit">Submit</button>
+       </form>
+    </div>
+</body>
+</html>
