@@ -4,7 +4,7 @@ from django.contrib import messages
 import time
 # Create your views here.
 def index(request):
-    sent=Register.objects.all()
+    sent=Register.objects.all()     
     return render(request,"head.html",{'sent':sent})
 def register(request):
     if request.method=="POST":
@@ -13,10 +13,13 @@ def register(request):
        age = request.POST['age']
        catgeory = request.POST['category']
        gender = request.POST['gender']
-       if name or amount or age or catgeory or gender == "":
-           messages.info(request,'cant add empty list')
-       elif amount is not int:
-                 messages.info(request,'amount is not int')
+       if amount is float or  complex:
+            messages.info(request,'name is empty')
+            return redirect('/')
+       elif name == '':
+            messages.info(request,'name is empty')
+            return redirect('/')
+
        else:
            obj=Register.objects.create(name=name,amount=amount,age=age,
                                category=catgeory,gender=gender,Date=time.ctime())

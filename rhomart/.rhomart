@@ -1,0 +1,7 @@
+export POSTGRES_HOST = monorail.proxy.rlwy.net
+export POSTGRES_PORT = 59407
+export POSTGRES_DB = railway
+export POSTGRES_USER = postgres
+export POSTGRES_PASSWORD = *GeagFCb2C244GFCgFbefEEFDfeBBbEf
+export DATABASE_URL = postgresql://postgres:*GeagFCb2C244GFCgFbefEEFDfeBBbEf@monorail.proxy.rlwy.net:59407/railway
+export SSL_CERT_DAYS= 820

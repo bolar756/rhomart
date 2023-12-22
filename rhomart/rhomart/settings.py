@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url;
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -40,7 +42,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rome',
 ]
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -75,16 +76,14 @@ WSGI_APPLICATION = 'rhomart.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default':{
-        'ENGINE': 'django.db.backends.postgresql',
-         'NAME': 'adebi',
-         'USER':'postgres',
-         'PASSWORD': 'martins',
-         'PORT':'5432',
-         'HOST':'localhost',
-    }
-}
+#DATABASES = {
+    #'default':{
+        #'ENGINE': 'django.db.backends.postgresql','NAME': 'railway','USER':'postgres','PASSWORD': '*GeagFCb2C244GFCgFbefEEFDfeBBbEf','PORT':'59407',
+         #'HOST':'monorail.proxy.rlwy.net','SSL_CERT_DAYS':'820','DATABASE_URL':os.environ.get('DATABASE_URL')}
+#}
+#DATABASES['default']=dj_database_url.config(conn_max_age=700,conn_health_checks=True)
+DATABASES ={'default': dj_database_url.config(default='postgresql://postgres:*GeagFCb2C244GFCgFbefEEFDfeBBbEf@monorail.proxy.rlwy.net:59407/railway')}
+
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
