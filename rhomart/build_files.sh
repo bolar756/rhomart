@@ -1,5 +1,5 @@
 #usr/bin/bash
-
+echo starting file
 pip -r install requiremnts.txt
 
 python3.9 manage.py makemigrations
