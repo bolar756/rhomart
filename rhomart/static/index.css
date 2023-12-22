@@ -55,6 +55,7 @@ button:hover::after{
     background-color: #081b29;
     margin-left: 25%;
     padding: 12px;
+    color: white;
 }
 button{
     position: relative;

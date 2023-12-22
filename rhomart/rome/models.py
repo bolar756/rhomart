@@ -3,7 +3,7 @@ import time
 # Create your models here.
 
 class Register(models.Model):
-    Date = models.CharField(default=time.ctime(),max_length=20)
+    Date = models.CharField(default=time.ctime(),max_length=40)
     category = models.CharField(default='category',max_length=20)
     amount=models.FloatField()
     age = models.IntegerField()
