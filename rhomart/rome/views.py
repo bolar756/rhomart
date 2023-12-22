@@ -13,18 +13,14 @@ def register(request):
        age = request.POST['age']
        catgeory = request.POST['category']
        gender = request.POST['gender']
-       if amount is float or  complex:
-            messages.info(request,'name is empty')
+       if amount or gender or name or catgeory or age == '':
+            messages.info(request,'empty content submitted')
             return redirect('/')
-       elif name == '':
-            messages.info(request,'name is empty')
-            return redirect('/')
-
        else:
            obj=Register.objects.create(name=name,amount=amount,age=age,
                                category=catgeory,gender=gender,Date=time.ctime())
            obj.save()
            messages.info(request,'sucessful addition')
-       return redirect('/')
+           return redirect('/')
     else:
         return redirect('/')
