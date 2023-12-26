@@ -17,6 +17,8 @@ def register(request):
                                category=catgeory,gender=gender,Date=time.ctime())
        obj.save()
        messages.info(request,'sucessful addition')
-       return redirect('/')
+       if ConnectionError:
+           messages.info(request,'connection error')
+           return redirect('/')
     else:
         return redirect('/')
